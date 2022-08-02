@@ -1,17 +1,38 @@
 const path = require("path");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-  // [mode] will determine how our code will be bundled.
-  // "development" will be human readable
-  // "production" will be minified
   mode: "development",
-  // [entry] this is the file where the bundling starts from.
-  entry: ".client/src/index.jsx",
-  // [output] is a configuration object to determine how and where to bundle our code
+  entry: "./client/src/index.jsx",
   output: {
-    // [path] is where to output
-    path: path.join(__dirname, 'public'),
-    // [filename] is the name of the file
-    filename: "bundle.js"
-  }
-}
+    path: path.join(__dirname, './Client/public'),
+    filename: "bundle.js",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(jsx|js)$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  // [devtool] this is an additional source map that will let the browser know what files are running our code.
+  // Helps with error tracing. Without it we will not know where our errors are coming from because it will state that everything inside the bundle file.
+  devServer: {
+    historyApiFallback: {
+      index: '/',
+    },
+  },
+
+  devtool: "eval-cheap-module-source-map",
+  plugins: [
+    new Dotenv({
+      systemvars: true,
+    }),
+  ],
+};

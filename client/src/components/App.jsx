@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const App = React.createElement("h1",null,"Hello World");
+const App = () => {
+
+  return(
+    <h1> Hello, MVP! </h1>
+  )
+}
 
 export default App;
