@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import GeneralStyles from '../styles/GeneralStyles.jsx';
 
 const App = () => {
 
   return(
-    <h1> Hello, MVP! </h1>
+    <GeneralStyles.Div>
+      <h1> Hello, MVP! </h1>
+    </GeneralStyles.Div>
   )
 }
 
