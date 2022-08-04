@@ -18,5 +18,8 @@ module.exports = {
     'react',
   ],
   rules: {
+    'no-console': 0,
+    'react/function-component-definition': 0,
+    'import/extensions': 0,
   },
 };
