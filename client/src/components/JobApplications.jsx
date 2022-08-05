@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-const NavLeft = () => {
+const JobApplications = () => {
   console.log('something');
 
   return (
     <div>
-      NavLeft Section
+      JobApplications Section
     </div>
   );
 };
 
-export default NavLeft;
+export default JobApplications;

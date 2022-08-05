@@ -1,7 +1,7 @@
 {
   "name": "mvp",
   "version": "1.0.0",
-  "description": "A 3-day Mininum Viable Project: Job Application Tracking & related company detail display",
+  "description": "A 3-day Mininum Viable Product: Job Application Tracking & related company detail display",
   "main": "server/index.js",
   "author": "Wenny Xiong",
   "license": "ISC",
