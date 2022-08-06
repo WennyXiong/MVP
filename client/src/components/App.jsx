@@ -8,12 +8,16 @@ import JobApplications from './JobApplications.jsx';
 
 const App = () => {
   const [username, setUsername] = useState('Wenny');
+  const [showNavOptions, setShowNavOptions] = useState(false);
 
   return (
     <GeneralStyles.Div>
 
       <NavTopBar username={username} />
-      <NavLeft />
+      <NavLeft
+        showNavOptions={showNavOptions}
+        setShowNavOptions={setShowNavOptions}
+      />
 
       <Sections.MainInfo>
         <CompanySummary />

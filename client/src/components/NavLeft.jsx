@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import Sections from '../styles/Sections.jsx';
 import NL from '../styles/NL.jsx';
 
-const NavLeft = () => {
+const NavLeft = ({ showNavOptions, setShowNavOptions }) => {
   console.log('something');
 
   return (
@@ -12,28 +14,53 @@ const NavLeft = () => {
           More Companies
         </NL.Span>
         <br />
-        <NL.Span>
+        <NL.Span onClick={() => setShowNavOptions(!showNavOptions)}>
           Applications
+          {showNavOptions
+            ? (
+              <FontAwesomeIcon
+                icon={faChevronUp}
+                style={{
+                  marginLeft: '5px',
+                  position: 'relative',
+                  top: '2px',
+                  fontSize: '17px',
+                }}
+              />
+            )
+            : (
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                style={{
+                  marginLeft: '5px',
+                  position: 'relative',
+                  top: '2px',
+                  fontSize: '17px',
+                }}
+              />
+            )}
         </NL.Span>
         <br />
-        <NL.Applications>
-          <NL.Options>
-            View All
-          </NL.Options>
-          <NL.Options>
-            Ready to Apply
-          </NL.Options>
-          <NL.Options>
-            AppOptionsed
-          </NL.Options>
-          <NL.Options>
-            Interview Scheduled
-          </NL.Options>
-          <NL.Options>
-            Archived
-          </NL.Options>
+        {showNavOptions && (
+          <NL.Applications>
+            <NL.Options>
+              View All
+            </NL.Options>
+            <NL.Options>
+              Ready to Apply
+            </NL.Options>
+            <NL.Options>
+              AppOptionsed
+            </NL.Options>
+            <NL.Options>
+              Interview Scheduled
+            </NL.Options>
+            <NL.Options>
+              Archived
+            </NL.Options>
 
-        </NL.Applications>
+          </NL.Applications>
+        )}
       </NL.Div>
     </Sections.NavLeft>
   );
