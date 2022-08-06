@@ -22,7 +22,7 @@ const Sections = {
     height: 600px;
     float: left;
     margin: 20px;
-    overflow: hidden;
+    overflow: visible;
     background-color: #fafce9;
   `,
   CompanySummary: styled.div`

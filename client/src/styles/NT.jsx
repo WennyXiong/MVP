@@ -34,6 +34,10 @@ const NT = {
     margin-left: 3px;
     width: 5%;
     height: 25%;
+
+    &:hover {
+      cursor: pointer;
+    }
   `,
 };
 
