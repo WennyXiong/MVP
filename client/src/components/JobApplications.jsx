@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import Sections from '../styles/Sections.jsx';
 
 const JobApplications = () => {
   console.log('something');
 
   return (
-    <div>
+    <Sections.JobApplications>
       JobApplications Section
-    </div>
+    </Sections.JobApplications>
   );
 };
 

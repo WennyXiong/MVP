@@ -12,22 +12,12 @@ const App = () => {
   return (
     <GeneralStyles.Div>
 
-      <Sections.NavTop>
-        <NavTopBar />
-      </Sections.NavTop>
-
-      <Sections.NavLeft>
-        <NavLeft />
-      </Sections.NavLeft>
+      <NavTopBar username={username} />
+      <NavLeft />
 
       <Sections.MainInfo>
-        <Sections.CompanySummary>
-          <CompanySummary />
-        </Sections.CompanySummary>
-
-        <Sections.JobApplications>
-          <JobApplications />
-        </Sections.JobApplications>
+        <CompanySummary />
+        <JobApplications />
       </Sections.MainInfo>
 
     </GeneralStyles.Div>

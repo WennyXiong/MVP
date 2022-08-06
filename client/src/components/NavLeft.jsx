@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import Sections from '../styles/Sections.jsx';
 
 const NavLeft = () => {
   console.log('something');
 
   return (
-    <div>
+    <Sections.NavLeft>
       NavLeft Section
-    </div>
+    </Sections.NavLeft>
   );
 };
 

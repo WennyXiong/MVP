@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import Sections from '../styles/Sections.jsx';
 
 const CompanySummary = () => {
   console.log('something');
 
   return (
-    <div>
+    <Sections.CompanySummary>
       CompanySummary Section
-    </div>
+    </Sections.CompanySummary>
   );
 };
 
