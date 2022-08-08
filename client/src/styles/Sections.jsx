@@ -38,7 +38,7 @@ const Sections = {
     margin: 10px 20px;
     width: 95%;
     height: 350px;
-    overflow: hidden;
+    overflow: visible;
     background-color: #e6f4e1;
   `,
 };
