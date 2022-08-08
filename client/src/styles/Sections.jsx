@@ -19,7 +19,7 @@ const Sections = {
   `,
   MainInfo: styled.div`
     width: 70%;
-    height: 600px;
+    height: fit-content;
     float: left;
     margin: 20px;
     overflow: visible;
@@ -37,9 +37,15 @@ const Sections = {
     display: inline-block;
     margin: 10px 20px;
     width: 95%;
-    height: 350px;
+    height: fit-content;
     overflow: visible;
     background-color: #e6f4e1;
+  `,
+  Footer: styled.div`
+    display: inline-block;
+    width: 100%;
+    height: 200px;
+    background-color: #a4d7e6;
   `,
 };
 

@@ -5,6 +5,7 @@ import NavTopBar from './NavTopBar.jsx';
 import NavLeft from './NavLeft.jsx';
 import CompanySummary from './CompanySummary.jsx';
 import JobApplications from './JobApplications.jsx';
+import Footer from './Footer.jsx';
 
 const App = () => {
   const [username, setUsername] = useState('Wenny');
@@ -23,6 +24,10 @@ const App = () => {
         <CompanySummary />
         <JobApplications />
       </Sections.MainInfo>
+
+      <Sections.Footer>
+        <Footer />
+      </Sections.Footer>
 
     </GeneralStyles.Div>
   );

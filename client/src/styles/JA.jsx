@@ -36,6 +36,7 @@ const JA = {
     }
   `,
   ApplicationTable: styled.table`
+    table-layout: fixed;
     position: relative;
     top: 20px;
     width: 100%;
