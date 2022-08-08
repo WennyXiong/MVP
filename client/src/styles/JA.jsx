@@ -57,11 +57,13 @@ const JA = {
     text-align: left;
     font-weight: 600;
     border-bottom: 1px solid #aaaeb2;
+    padding-left: 5px;
   `,
   Td: styled.td`
     font-weight: 500;
     border-top: 1px solid #aaaeb2;
     border-bottom: 1px solid #aaaeb2;
+    padding-left: 5px;
   `,
 };
 
