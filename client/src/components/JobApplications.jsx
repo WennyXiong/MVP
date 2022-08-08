@@ -22,107 +22,41 @@ const JobApplications = () => {
 
       <JA.ApplicationTable>
         <thead>
-          <tr>
-            <JA.HeadTh>Company</JA.HeadTh>
-            <JA.HeadTh>Position</JA.HeadTh>
-            <JA.HeadTh>Platform</JA.HeadTh>
-            <JA.HeadTh>Status</JA.HeadTh>
-            <JA.HeadTh>Next Deadline</JA.HeadTh>
-            <JA.HeadTh>JD</JA.HeadTh>
-            <JA.HeadTh>Notes</JA.HeadTh>
-          </tr>
+          <JA.HeadTr rowspan="2">
+            <JA.Th>Company</JA.Th>
+            <JA.Th>Position</JA.Th>
+            <JA.Th>Platform</JA.Th>
+            <JA.Th>Status</JA.Th>
+            <JA.Th>Next Deadline</JA.Th>
+            <JA.Th>Job Description</JA.Th>
+            <JA.Th>Notes</JA.Th>
+          </JA.HeadTr>
         </thead>
         <tbody>
-          <tr>
-            <JA.Th>Google</JA.Th>
-            <JA.Th>Software Engineer</JA.Th>
-            <JA.Th>LinkedIn</JA.Th>
-            <JA.Th>final interview</JA.Th>
-            <JA.Th>10/20</JA.Th>
-            <JA.Th>www.jsLink.com</JA.Th>
-            <JA.Th>get prepared for questions 1 2 3, leetcode 1 2 3</JA.Th>
-          </tr>
-          <tr>
-            <JA.Th>Google</JA.Th>
-            <JA.Th>Software Engineer</JA.Th>
-            <JA.Th>LinkedIn</JA.Th>
-            <JA.Th>final interview</JA.Th>
-            <JA.Th>10/20</JA.Th>
-            <JA.Th>www.jsLink.com</JA.Th>
-            <JA.Th>get prepared for questions 1 2 3, leetcode 1 2 3</JA.Th>
-          </tr>
-          <tr>
-            <JA.Th>Google</JA.Th>
-            <JA.Th>Software Engineer</JA.Th>
-            <JA.Th>LinkedIn</JA.Th>
-            <JA.Th>final interview</JA.Th>
-            <JA.Th>10/20</JA.Th>
-            <JA.Th>www.jsLink.com</JA.Th>
-            <JA.Th>get prepared for questions 1 2 3, leetcode 1 2 3</JA.Th>
-          </tr>
-          <tr>
-            <JA.Th>Google</JA.Th>
-            <JA.Th>Software Engineer</JA.Th>
-            <JA.Th>LinkedIn</JA.Th>
-            <JA.Th>final interview</JA.Th>
-            <JA.Th>10/20</JA.Th>
-            <JA.Th>www.jsLink.com</JA.Th>
-            <JA.Th>get prepared for questions 1 2 3, leetcode 1 2 3</JA.Th>
-          </tr>
-          <tr>
-            <JA.Th>Google</JA.Th>
-            <JA.Th>Software Engineer</JA.Th>
-            <JA.Th>LinkedIn</JA.Th>
-            <JA.Th>final interview</JA.Th>
-            <JA.Th>10/20</JA.Th>
-            <JA.Th>www.jsLink.com</JA.Th>
-            <JA.Th>get prepared for questions 1 2 3, leetcode 1 2 3</JA.Th>
-          </tr>
-          <tr>
-            <JA.Th>Google</JA.Th>
-            <JA.Th>Software Engineer</JA.Th>
-            <JA.Th>LinkedIn</JA.Th>
-            <JA.Th>final interview</JA.Th>
-            <JA.Th>10/20</JA.Th>
-            <JA.Th>www.jsLink.com</JA.Th>
-            <JA.Th>get prepared for questions 1 2 3, leetcode 1 2 3</JA.Th>
-          </tr>
-          <tr>
-            <JA.Th>Google</JA.Th>
-            <JA.Th>Software Engineer</JA.Th>
-            <JA.Th>LinkedIn</JA.Th>
-            <JA.Th>final interview</JA.Th>
-            <JA.Th>10/20</JA.Th>
-            <JA.Th>www.jsLink.com</JA.Th>
-            <JA.Th>get prepared for questions 1 2 3, leetcode 1 2 3</JA.Th>
-          </tr>
-          <tr>
-            <JA.Th>Google</JA.Th>
-            <JA.Th>Software Engineer</JA.Th>
-            <JA.Th>LinkedIn</JA.Th>
-            <JA.Th>final interview</JA.Th>
-            <JA.Th>10/20</JA.Th>
-            <JA.Th>www.jsLink.com</JA.Th>
-            <JA.Th>get prepared for questions 1 2 3, leetcode 1 2 3</JA.Th>
-          </tr>
-          <tr>
-            <JA.Th>Google</JA.Th>
-            <JA.Th>Software Engineer</JA.Th>
-            <JA.Th>LinkedIn</JA.Th>
-            <JA.Th>final interview</JA.Th>
-            <JA.Th>10/20</JA.Th>
-            <JA.Th>www.jsLink.com</JA.Th>
-            <JA.Th>get prepared for questions 1 2 3, leetcode 1 2 3</JA.Th>
-          </tr>
-          <tr>
-            <JA.Th>Google</JA.Th>
-            <JA.Th>Software Engineer</JA.Th>
-            <JA.Th>LinkedIn</JA.Th>
-            <JA.Th>final interview</JA.Th>
-            <JA.Th>10/20</JA.Th>
-            <JA.Th>www.jsLink.com</JA.Th>
-            <JA.Th>get prepared for questions 1 2 3, leetcode 1 2 3</JA.Th>
-          </tr>
+          <JA.Tr>
+            <JA.Td style={{ borderLeft: '1px solid #aaaeb2' }}>Google</JA.Td>
+            <JA.Td>Software Engineer</JA.Td>
+            <JA.Td>LinkedIn</JA.Td>
+            <JA.Td>final interview</JA.Td>
+            <JA.Td>10/20</JA.Td>
+            <JA.Td>www.jsLink.com</JA.Td>
+            <JA.Td style={{ borderRight: '1px solid #aaaeb2' }}>
+              get prepared for questions 1 2 3, leetcode 1 2 3
+              get prepared for questions 1 2 3, leetcode 1 2 3
+              get prepared for questions 1 2 3, leetcode 1 2 3
+              get prepared for questions 1 2 3, leetcode 1 2 3
+            </JA.Td>
+          </JA.Tr>
+
+          <JA.Tr>
+            <JA.Td style={{ borderLeft: '1px solid #aaaeb2' }}>Google</JA.Td>
+            <JA.Td>Software Engineer</JA.Td>
+            <JA.Td>LinkedIn</JA.Td>
+            <JA.Td>final interview</JA.Td>
+            <JA.Td>10/20</JA.Td>
+            <JA.Td>www.jsLink.com</JA.Td>
+            <JA.Td style={{ borderRight: '1px solid #aaaeb2' }}>get prepared for questions 1 2 3, leetcode 1 2 3</JA.Td>
+          </JA.Tr>
         </tbody>
       </JA.ApplicationTable>
     </Sections.JobApplications>

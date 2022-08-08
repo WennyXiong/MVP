@@ -23,7 +23,7 @@ const Sections = {
     float: left;
     margin: 20px;
     overflow: visible;
-    background-color: #fafce9;
+    /* background-color: #9ea185; */
   `,
   CompanySummary: styled.div`
     display: inline-block;
@@ -31,15 +31,17 @@ const Sections = {
     width: 95%;
     height: 200px;
     overflow: hidden;
-    background-color: #e6f4e1;
+    background-color: #fafce9;
   `,
   JobApplications: styled.div`
     display: inline-block;
     margin: 10px 20px;
-    width: 95%;
+    padding: 20px;
+    position: relative;
+    width: 91%;
     height: fit-content;
     overflow: visible;
-    background-color: #e6f4e1;
+    background-color: #faf8f8;
   `,
   Footer: styled.div`
     display: inline-block;

@@ -50,7 +50,7 @@ const NavLeft = ({ showNavOptions, setShowNavOptions }) => {
               Ready to Apply
             </NL.Options>
             <NL.Options>
-              AppOptionsed
+              Applied
             </NL.Options>
             <NL.Options>
               Interview Scheduled

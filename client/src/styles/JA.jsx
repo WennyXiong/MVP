@@ -25,7 +25,7 @@ const JA = {
     float: right;
     position: relative;
     right: 5%;
-    height: 25px;
+    height: 23px;
     border: 1px solid;
     border-radius: 9999px;
     background: white;
@@ -40,13 +40,28 @@ const JA = {
     position: relative;
     top: 20px;
     width: 100%;
-    border: 1px solid grey;
+    /* border: 1px solid #aaaeb2; */
+    border-collapse: separate;
+    border-spacing: 0 10px;
   `,
-  HeadTh: styled.th`
-    font-weight: 600;
+  HeadTr: styled.tr`
+    /* border-bottom: 1pt solid black; */
+    border: 1px solid #aaaeb2;
+    height: 30px;
+    word-wrap: break-word;
+  `,
+  Tr: styled.tr`
+    word-wrap: break-word;
   `,
   Th: styled.th`
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid #aaaeb2;
+  `,
+  Td: styled.td`
     font-weight: 500;
+    border-top: 1px solid #aaaeb2;
+    border-bottom: 1px solid #aaaeb2;
   `,
 };
 
