@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Avatar,
+  Grid,
+  Typography,
+  TablePagination,
+  TableFooter,
+} from '@material-ui/core';
+
 import Sections from '../styles/Sections.jsx';
 import JA from '../styles/JA.jsx';
 import ModalToAdd from './ModalToAdd.jsx';
@@ -17,6 +26,39 @@ const JobApplications = ({ applicationList, setUpdateCount }) => {
   const [openModal, setOpenModal] = useState(false);
 
   console.log('applicationList: ', applicationList);
+
+  const useStyles = makeStyles((theme) => ({
+    table: {
+      minWidth: 650,
+    },
+    tableContainer: {
+      borderRadius: 15,
+      margin: '10px 10px',
+      maxWidth: 950,
+    },
+    tableHeaderCell: {
+      fontWeight: 'bold',
+      backgroundColor: theme.palette.primary.dark,
+      color: theme.palette.getContrastText(theme.palette.primary.dark),
+    },
+    avatar: {
+      backgroundColor: theme.palette.primary.light,
+      color: theme.palette.getContrastText(theme.palette.primary.light),
+    },
+    name: {
+      fontWeight: 'bold',
+      color: theme.palette.secondary.dark,
+    },
+    status: {
+      fontWeight: 'bold',
+      fontSize: '0.75rem',
+      color: 'white',
+      backgroundColor: 'grey',
+      borderRadius: 8,
+      padding: '3px 10px',
+      display: 'inline-block',
+    },
+  }));
 
   return (
     <Sections.JobApplications>
@@ -32,7 +74,46 @@ const JobApplications = ({ applicationList, setUpdateCount }) => {
       </JA.AddButton>
 
       {openModal && <ModalToAdd setOpenModal={setOpenModal} />}
-      {(openModal === false && applicationList.length > 0)
+
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              {/* <TableCell>Application List</TableCell> */}
+              <TableCell align="center">Company</TableCell>
+              <TableCell align="center">Position</TableCell>
+              <TableCell align="center">Applied At</TableCell>
+              <TableCell align="center">Status</TableCell>
+              <TableCell align="center">Next Deadline</TableCell>
+              <TableCell align="center">Job Description</TableCell>
+              <TableCell align="center">Notes</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {applicationList.map((row) => (
+              <TableRow
+                key={row._id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {row.company}
+                </TableCell>
+                <TableCell align="left">{row.position}</TableCell>
+                <TableCell align="left">
+                  {row.appliedAtDate}
+                  {row.appliedAtPlatform}
+                </TableCell>
+                <TableCell align="left">{row.status}</TableCell>
+                <TableCell align="left">{row.nextDeadline}</TableCell>
+                <TableCell align="left">{row.JD}</TableCell>
+                <TableCell align="left">{row.notes}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+
+      {/* {(openModal === false && applicationList.length > 0)
       && (
         <JA.ApplicationTable>
           <thead>
@@ -65,7 +146,7 @@ const JobApplications = ({ applicationList, setUpdateCount }) => {
             </JA.Tr>
           </tbody>
         </JA.ApplicationTable>
-      )}
+      )} */}
     </Sections.JobApplications>
   );
 };
