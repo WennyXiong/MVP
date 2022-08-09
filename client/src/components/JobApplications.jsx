@@ -12,9 +12,11 @@ import Sections from '../styles/Sections.jsx';
 import JA from '../styles/JA.jsx';
 import ModalToAdd from './ModalToAdd.jsx';
 
-const JobApplications = () => {
+const JobApplications = ({ applicationList, setUpdateCount }) => {
   const [sortBy, setSortBy] = useState('sort by');
   const [openModal, setOpenModal] = useState(false);
+
+  console.log('applicationList: ', applicationList);
 
   return (
     <Sections.JobApplications>
@@ -30,7 +32,7 @@ const JobApplications = () => {
       </JA.AddButton>
 
       {openModal && <ModalToAdd setOpenModal={setOpenModal} />}
-      {/* {openModal === false
+      {(openModal === false && applicationList.length > 0)
       && (
         <JA.ApplicationTable>
           <thead>
@@ -46,7 +48,9 @@ const JobApplications = () => {
           </thead>
           <tbody>
             <JA.Tr>
-              <JA.Td style={{ borderLeft: '1px solid #aaaeb2' }}>Google</JA.Td>
+              <JA.Td style={{ borderLeft: '1px solid #aaaeb2' }}>
+                {applicationList[0].company}
+              </JA.Td>
               <JA.Td>Software Engineer</JA.Td>
               <JA.Td>LinkedIn</JA.Td>
               <JA.Td>final interview</JA.Td>
@@ -59,19 +63,9 @@ const JobApplications = () => {
                 get prepared for questions 1 2 3, leetcode 1 2 3
               </JA.Td>
             </JA.Tr>
-
-            <JA.Tr>
-              <JA.Td style={{ borderLeft: '1px solid #aaaeb2' }}>Google</JA.Td>
-              <JA.Td>Software Engineer</JA.Td>
-              <JA.Td>LinkedIn</JA.Td>
-              <JA.Td>final interview</JA.Td>
-              <JA.Td>10/20</JA.Td>
-              <JA.Td>www.jsLink.com</JA.Td>
-              <JA.Td style={{ borderRight: '1px solid #aaaeb2' }}>get prepared for questions 1 2 3, leetcode 1 2 3</JA.Td>
-            </JA.Tr>
           </tbody>
         </JA.ApplicationTable>
-      )} */}
+      )}
     </Sections.JobApplications>
   );
 };

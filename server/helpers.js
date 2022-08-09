@@ -1,9 +1,8 @@
 const { find, save } = require('../db/index.js');
 
 const getAllApplications = (req, res) => {
-  console.log('req.body: ', res.body);
-  find(req.body)
-    .then((listData) => res.status(200).send(listData.data))
+  find()
+    .then((listData) => res.status(200).send(listData))
     .catch((err) => {
       console.log('errpr when getting all data');
       res.status(500);

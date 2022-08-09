@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import GeneralStyles from '../styles/GeneralStyles.jsx';
 import Sections from '../styles/Sections.jsx';
 import NavTopBar from './NavTopBar.jsx';
@@ -10,6 +11,21 @@ import Footer from './Footer.jsx';
 const App = () => {
   const [username, setUsername] = useState('Wenny');
   const [showNavOptions, setShowNavOptions] = useState(false);
+  const [applicationList, setApplicationList] = useState([]);
+  const [updateCount, setUpdateCount] = useState(0);
+
+  const getApplications = () => {
+    axios.get('/applications')
+      .then((Applications) => {
+        setApplicationList(Applications.data);
+      })
+
+      .catch((err) => console.log('error when getting the list: ', err));
+  };
+
+  useEffect(() => {
+    getApplications();
+  }, []);
 
   return (
     <GeneralStyles.Div>
@@ -22,7 +38,10 @@ const App = () => {
 
       <Sections.MainInfo>
         <CompanySummary />
-        <JobApplications />
+        <JobApplications
+          applicationList={applicationList}
+          setUpdateCount={setUpdateCount}
+        />
       </Sections.MainInfo>
 
       <Sections.Footer>
