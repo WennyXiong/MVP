@@ -11,7 +11,7 @@ const JA = {
     display: inline-block;
     float: right;
     position: relative;
-    right: 3%;
+    right: 0;
     width: 10%;
     height: 25px;
     border-radius: 5px;
@@ -24,7 +24,7 @@ const JA = {
     display: inline-block;
     float: right;
     position: relative;
-    right: 5%;
+    right: 2%;
     height: 23px;
     border: 1px solid;
     border-radius: 9999px;
@@ -34,36 +34,6 @@ const JA = {
     &:hover {
       opacity: 0.7;
     }
-  `,
-  ApplicationTable: styled.table`
-    table-layout: fixed;
-    position: relative;
-    top: 20px;
-    width: 100%;
-    /* border: 1px solid #aaaeb2; */
-    border-collapse: separate;
-    border-spacing: 0 10px;
-  `,
-  HeadTr: styled.tr`
-    /* border-bottom: 1pt solid black; */
-    border: 1px solid #aaaeb2;
-    height: 30px;
-    word-wrap: break-word;
-  `,
-  Tr: styled.tr`
-    word-wrap: break-word;
-  `,
-  Th: styled.th`
-    text-align: left;
-    font-weight: 600;
-    border-bottom: 1px solid #aaaeb2;
-    padding-left: 5px;
-  `,
-  Td: styled.td`
-    font-weight: 500;
-    border-top: 1px solid #aaaeb2;
-    border-bottom: 1px solid #aaaeb2;
-    padding-left: 5px;
   `,
 };
 

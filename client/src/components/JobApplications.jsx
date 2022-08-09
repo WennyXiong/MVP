@@ -44,7 +44,6 @@ const useStyles = makeStyles(() => ({
   },
   tableContainer: {
     borderRadius: 15,
-    margin: '10px 10px',
     maxWidth: 950,
   },
   tableHeaderCell: {

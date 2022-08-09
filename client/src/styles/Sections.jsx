@@ -11,11 +11,12 @@ const Sections = {
   `,
   NavLeft: styled.div`
     width: 15%;
-    height: 600px;
+    height: 300px;
     float: left;
     margin: 20px;
     overflow: hidden;
-    background-color: #d1f0ef;
+    border-left: 2px solid grey;
+    /* background-color: #d1f0ef; */
   `,
   MainInfo: styled.div`
     width: 75%;

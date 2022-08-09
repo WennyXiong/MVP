@@ -47,13 +47,16 @@ const NavLeft = ({ showNavOptions, setShowNavOptions }) => {
               View All
             </NL.Options>
             <NL.Options>
-              Ready to Apply
-            </NL.Options>
-            <NL.Options>
               Applied
             </NL.Options>
             <NL.Options>
               Interview Scheduled
+            </NL.Options>
+            <NL.Options>
+              Final Interview
+            </NL.Options>
+            <NL.Options>
+              Offered
             </NL.Options>
             <NL.Options>
               Archived
