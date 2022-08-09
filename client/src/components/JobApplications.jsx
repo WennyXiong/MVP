@@ -72,7 +72,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const JobApplications = ({ applicationList, setUpdateCount }) => {
+const JobApplications = ({ applicationList, updateCount, setUpdateCount }) => {
   const [sortBy, setSortBy] = useState('sort by');
   const [openModal, setOpenModal] = useState(false);
   const [page, setPage] = useState(0);
@@ -102,7 +102,7 @@ const JobApplications = ({ applicationList, setUpdateCount }) => {
         <FontAwesomeIcon icon={faPlus} />
       </JA.AddButton>
 
-      {openModal && <ModalToAdd setOpenModal={setOpenModal} />}
+      {openModal && <ModalToAdd setOpenModal={setOpenModal} updateCount={updateCount} setUpdateCount={setUpdateCount} />}
 
       <br />
       <br />
@@ -135,7 +135,7 @@ const JobApplications = ({ applicationList, setUpdateCount }) => {
                   <Typography color="textSecondary" variant="body2">{row.appliedAtDate}</Typography>
                   <Typography color="textSecondary" variant="body2">{row.appliedAtPlatform}</Typography>
                 </TableCell>
-                <TableCell align="center">
+                <TableCell align="center" style={{ maxWidth: '60px' }}>
                   <Typography
                     className={classes.status}
                     style={{

@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import axios from 'axios';
 import MTA from '../styles/MTA.jsx';
 
-const ModalToAdd = ({ setOpenModal }) => {
+const ModalToAdd = ({ setOpenModal, updateCount, setUpdateCount }) => {
   const [company, setCompany] = useState('');
   const [position, setPosition] = useState('');
   const [appliedAtPlatform, setAppliedAtPlatform] = useState('');
@@ -15,7 +15,10 @@ const ModalToAdd = ({ setOpenModal }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    let count = updateCount;
     setOpenModal(false);
+    setUpdateCount(count += 1);
+
     const applicationObj = {
       company,
       position,
@@ -26,7 +29,6 @@ const ModalToAdd = ({ setOpenModal }) => {
       JD,
       notes,
     };
-    console.log('obj to submit: ', applicationObj);
 
     axios.post('/applications', applicationObj)
       .then((savedObj) => console.log('saved in list: ', savedObj))

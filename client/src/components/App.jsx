@@ -25,7 +25,7 @@ const App = () => {
 
   useEffect(() => {
     getApplications();
-  }, []);
+  }, [updateCount]);
 
   return (
     <GeneralStyles.Div>
@@ -40,6 +40,7 @@ const App = () => {
         <CompanySummary />
         <JobApplications
           applicationList={applicationList}
+          updateCount={updateCount}
           setUpdateCount={setUpdateCount}
         />
       </Sections.MainInfo>
