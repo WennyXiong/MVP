@@ -25,7 +25,7 @@ const JobApplications = () => {
           <JA.HeadTr rowspan="2">
             <JA.Th>Company</JA.Th>
             <JA.Th>Position</JA.Th>
-            <JA.Th>Platform</JA.Th>
+            <JA.Th>Applied At</JA.Th>
             <JA.Th>Status</JA.Th>
             <JA.Th>Next Deadline</JA.Th>
             <JA.Th>Job Description</JA.Th>
