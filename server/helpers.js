@@ -1,10 +1,22 @@
-const { find, create } = require('../db/index.js');
+const { find, save } = require('../db/index.js');
 
 const getAllApplications = (req, res) => {
   console.log('req.body: ', res.body);
-  create(req.body)
-    .then((resBody) => res.status(201).send(resBody.data))
-    .catch((err) => res.status(500).send(err));
+  find(req.body)
+    .then((listData) => res.status(200).send(listData.data))
+    .catch((err) => {
+      console.log('errpr when getting all data');
+      res.status(500);
+    });
 };
 
-module.exports = { getAllApplications };
+const addToApplications = (req, res) => {
+  save(req.body)
+    .then((savedData) => res.status(201).send(savedData.data))
+    .catch((err) => {
+      console.log('err when adding to DB: ', err);
+      res.status(500);
+    });
+};
+
+module.exports = { getAllApplications, addToApplications };

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import MTA from '../styles/MTA.jsx';
 
 const ModalToAdd = ({ setOpenModal }) => {
@@ -26,7 +27,9 @@ const ModalToAdd = ({ setOpenModal }) => {
     };
     console.log('obj to submit: ', applicationObj);
 
-
+    axios.post('/applications', applicationObj)
+      .then((savedObj) => console.log('saved in list: ', savedObj))
+      .catch((err) => console.log('error when POST: ', err));
   };
 
   return (

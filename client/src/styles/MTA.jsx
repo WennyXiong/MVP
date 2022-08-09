@@ -39,7 +39,7 @@ const MTA = {
     max-width: 750px;
     padding: 2.5em 1.5em 1.5em 1.5em;
     background-color: white;
-    box-shadow: 0 0 10px 3px rgba(0,0,0,0.1);
+    /* box-shadow: 0 0 10px 3px rgba(0,0,0,0.1); */
     overflow: auto;
     justify-content: center;
     align-items: center;
@@ -96,6 +96,7 @@ const MTA = {
     height: 40px;
     border-radius: 5px;
     background-color: palevioletred;
+    color: white;
     &:hover {
       opacity: 0.8;
       cursor: pointer;

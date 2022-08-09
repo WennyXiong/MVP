@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 import Sections from '../styles/Sections.jsx';
 import JA from '../styles/JA.jsx';
 import ModalToAdd from './ModalToAdd.jsx';
@@ -23,7 +30,7 @@ const JobApplications = () => {
       </JA.AddButton>
 
       {openModal && <ModalToAdd setOpenModal={setOpenModal} />}
-      {openModal === false
+      {/* {openModal === false
       && (
         <JA.ApplicationTable>
           <thead>
@@ -64,7 +71,7 @@ const JobApplications = () => {
             </JA.Tr>
           </tbody>
         </JA.ApplicationTable>
-      )}
+      )} */}
     </Sections.JobApplications>
   );
 };

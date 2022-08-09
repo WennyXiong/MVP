@@ -17,14 +17,30 @@ const applicationSchema = new mongoose.Schema({
   notes: { type: String },
 });
 
-const Application = new mongoose.Model('Application', applicationSchema);
+const Application = new mongoose.model('Application', applicationSchema);
 
 const find = () => (
-  Application.find()
+  Application.find().exec()
 );
 
-const create = (obj) => {
-  Application.create(obj);
-};
+const save = (obj) => (
+  Application.findOneAndUpdate(
+    {
+      company: obj.company,
+      position: obj.position,
+      appliedAtDate: obj.appliedAtDate,
+    },
+    {
+      status: obj.status,
+      nextDeadline: obj.nextDeadline,
+      JD: obj.JD,
+      notes: obj.notes,
+    },
+    {
+      new: true,
+      upsert: true,
+    },
+  ).exec()
+);
 
-module.exports = { find, create };
+module.exports = { find, save };
