@@ -3,9 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Sections from '../styles/Sections.jsx';
 import JA from '../styles/JA.jsx';
+import ModalToAdd from './ModalToAdd.jsx';
 
 const JobApplications = () => {
   const [sortBy, setSortBy] = useState('sort by');
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <Sections.JobApplications>
@@ -16,9 +18,11 @@ const JobApplications = () => {
         <option> deadline </option>
       </JA.SortBy>
 
-      <JA.AddButton>
+      <JA.AddButton onClick={() => setOpenModal(true)}>
         <FontAwesomeIcon icon={faPlus} />
       </JA.AddButton>
+
+      {openModal && <ModalToAdd setOpenModal={setOpenModal} />}
 
       <JA.ApplicationTable>
         <thead>

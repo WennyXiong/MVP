@@ -22,5 +22,6 @@ module.exports = {
     'react/function-component-definition': 0,
     'import/extensions': 0,
     'react/prop-types': 0,
+    'no-unused-vars': 0,
   },
 };
