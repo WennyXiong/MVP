@@ -104,6 +104,9 @@ const JobApplications = ({ applicationList, setUpdateCount }) => {
 
       {openModal && <ModalToAdd setOpenModal={setOpenModal} />}
 
+      <br />
+      <br />
+
       <TableContainer component={Paper} className={classes.tableContainer}>
         <Table className={classes.table}>
           <TableHead>
@@ -115,6 +118,7 @@ const JobApplications = ({ applicationList, setUpdateCount }) => {
               <TableCell className={classes.tableHeaderCell} align="center">Next Deadline</TableCell>
               <TableCell className={classes.tableHeaderCell} align="center">Notes</TableCell>
               <TableCell className={classes.tableHeaderCell} align="center">Job Description</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center"> </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -148,6 +152,7 @@ const JobApplications = ({ applicationList, setUpdateCount }) => {
                 <TableCell align="center">{row.nextDeadline}</TableCell>
                 <TableCell style={{ minWidth: '180px', wordWrap: 'break-word' }}>{row.notes}</TableCell>
                 <TableCell style={{ maxWidth: '98px', wordWrap: 'break-word' }}>{row.JD}</TableCell>
+                <TableCell> Edit </TableCell>
               </TableRow>
             ))}
           </TableBody>

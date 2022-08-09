@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '@mui/material/Button';
 import axios from 'axios';
 import MTA from '../styles/MTA.jsx';
 
@@ -55,9 +56,13 @@ const ModalToAdd = ({ setOpenModal }) => {
           <MTA.Label>Notes</MTA.Label>
           <MTA.Input onChange={(e) => setNotes(e.target.value)} />
 
-          <MTA.SubmitBtn type="submit">
-            Submittt
-          </MTA.SubmitBtn>
+          <Button
+            type="submit"
+            variant="contained"
+            style={{ width: '200px', backgroundColor: 'palevioletred' }}
+          >
+            SUBMIT
+          </Button>
 
         </MTA.Form>
       </MTA.Container>

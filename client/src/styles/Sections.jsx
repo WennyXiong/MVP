@@ -18,7 +18,7 @@ const Sections = {
     background-color: #d1f0ef;
   `,
   MainInfo: styled.div`
-    width: 70%;
+    width: 75%;
     height: fit-content;
     float: left;
     margin: 20px;

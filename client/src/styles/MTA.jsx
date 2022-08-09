@@ -41,7 +41,7 @@ const MTA = {
     background-color: white;
     /* box-shadow: 0 0 10px 3px rgba(0,0,0,0.1); */
     overflow: auto;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     z-index: 20;
   `,
