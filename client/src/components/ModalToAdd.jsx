@@ -11,37 +11,53 @@ const ModalToAdd = ({ setOpenModal }) => {
   const [JD, setJD] = useState('');
   const [notes, setNotes] = useState('');
 
-  const onSubmit = (obj) => {
-    console.log('obj to submit: ', obj);
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setOpenModal(false);
+    const applicationObj = {
+      company,
+      position,
+      appliedAtPlatform,
+      appliedAtDate,
+      status,
+      nextDeadline,
+      JD,
+      notes,
+    };
+    console.log('obj to submit: ', applicationObj);
+
+
   };
 
   return (
     <MTA.Background>
-      <MTA.Form onSubmit={(e) => onSubmit(e.target.value)}>
-        <MTA.Label>Company</MTA.Label>
-        <MTA.Input />
-        <MTA.Label>Position</MTA.Label>
-        <MTA.Input />
-        <MTA.Label>Applied Platform</MTA.Label>
-        <MTA.Input />
-        <MTA.Label>Applied Date</MTA.Label>
-        <MTA.Input />
-        <MTA.Label>Status</MTA.Label>
-        <MTA.Input />
-        <MTA.Label>Next Deadline</MTA.Label>
-        <MTA.Input />
-        <MTA.Label>Job Description</MTA.Label>
-        <MTA.Input />
-        <MTA.Label>Notes</MTA.Label>
-        <MTA.Input />
+      <MTA.Container>
+        <MTA.Xout onClick={() => setOpenModal(false)}> X </MTA.Xout>
 
-        <MTA.CloseBtn onClick={() => setOpenModal(false)}>
-          Close
-        </MTA.CloseBtn>
-        <MTA.SubmitBtn>
-          Submittt
-        </MTA.SubmitBtn>
-      </MTA.Form>
+        <MTA.Form onSubmit={onSubmit}>
+          <MTA.Label>Company</MTA.Label>
+          <MTA.Input onChange={(e) => setCompany(e.target.value)} />
+          <MTA.Label>Position</MTA.Label>
+          <MTA.Input onChange={(e) => setPosition(e.target.value)} />
+          <MTA.Label>Applied Platform</MTA.Label>
+          <MTA.Input onChange={(e) => setAppliedAtPlatform(e.target.value)} />
+          <MTA.Label>Applied Date</MTA.Label>
+          <MTA.Input onChange={(e) => setAppliedAtDate(e.target.value)} />
+          <MTA.Label>Status</MTA.Label>
+          <MTA.Input onChange={(e) => setStatus(e.target.value)} />
+          <MTA.Label>Next Deadline</MTA.Label>
+          <MTA.Input onChange={(e) => setNextDeadline(e.target.value)} />
+          <MTA.Label>Job Description</MTA.Label>
+          <MTA.Input onChange={(e) => setJD(e.target.value)} />
+          <MTA.Label>Notes</MTA.Label>
+          <MTA.Input onChange={(e) => setNotes(e.target.value)} />
+
+          <MTA.SubmitBtn type="submit">
+            Submittt
+          </MTA.SubmitBtn>
+
+        </MTA.Form>
+      </MTA.Container>
     </MTA.Background>
   );
 };
