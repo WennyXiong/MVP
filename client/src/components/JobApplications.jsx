@@ -23,46 +23,48 @@ const JobApplications = () => {
       </JA.AddButton>
 
       {openModal && <ModalToAdd setOpenModal={setOpenModal} />}
+      {openModal === false
+      && (
+        <JA.ApplicationTable>
+          <thead>
+            <JA.HeadTr rowspan="2">
+              <JA.Th>Company</JA.Th>
+              <JA.Th>Position</JA.Th>
+              <JA.Th>Applied At</JA.Th>
+              <JA.Th>Status</JA.Th>
+              <JA.Th>Next Deadline</JA.Th>
+              <JA.Th>Job Description</JA.Th>
+              <JA.Th>Notes</JA.Th>
+            </JA.HeadTr>
+          </thead>
+          <tbody>
+            <JA.Tr>
+              <JA.Td style={{ borderLeft: '1px solid #aaaeb2' }}>Google</JA.Td>
+              <JA.Td>Software Engineer</JA.Td>
+              <JA.Td>LinkedIn</JA.Td>
+              <JA.Td>final interview</JA.Td>
+              <JA.Td>10/20</JA.Td>
+              <JA.Td>www.jsLink.com</JA.Td>
+              <JA.Td style={{ borderRight: '1px solid #aaaeb2' }}>
+                get prepared for questions 1 2 3, leetcode 1 2 3
+                get prepared for questions 1 2 3, leetcode 1 2 3
+                get prepared for questions 1 2 3, leetcode 1 2 3
+                get prepared for questions 1 2 3, leetcode 1 2 3
+              </JA.Td>
+            </JA.Tr>
 
-      <JA.ApplicationTable>
-        <thead>
-          <JA.HeadTr rowspan="2">
-            <JA.Th>Company</JA.Th>
-            <JA.Th>Position</JA.Th>
-            <JA.Th>Applied At</JA.Th>
-            <JA.Th>Status</JA.Th>
-            <JA.Th>Next Deadline</JA.Th>
-            <JA.Th>Job Description</JA.Th>
-            <JA.Th>Notes</JA.Th>
-          </JA.HeadTr>
-        </thead>
-        <tbody>
-          <JA.Tr>
-            <JA.Td style={{ borderLeft: '1px solid #aaaeb2' }}>Google</JA.Td>
-            <JA.Td>Software Engineer</JA.Td>
-            <JA.Td>LinkedIn</JA.Td>
-            <JA.Td>final interview</JA.Td>
-            <JA.Td>10/20</JA.Td>
-            <JA.Td>www.jsLink.com</JA.Td>
-            <JA.Td style={{ borderRight: '1px solid #aaaeb2' }}>
-              get prepared for questions 1 2 3, leetcode 1 2 3
-              get prepared for questions 1 2 3, leetcode 1 2 3
-              get prepared for questions 1 2 3, leetcode 1 2 3
-              get prepared for questions 1 2 3, leetcode 1 2 3
-            </JA.Td>
-          </JA.Tr>
-
-          <JA.Tr>
-            <JA.Td style={{ borderLeft: '1px solid #aaaeb2' }}>Google</JA.Td>
-            <JA.Td>Software Engineer</JA.Td>
-            <JA.Td>LinkedIn</JA.Td>
-            <JA.Td>final interview</JA.Td>
-            <JA.Td>10/20</JA.Td>
-            <JA.Td>www.jsLink.com</JA.Td>
-            <JA.Td style={{ borderRight: '1px solid #aaaeb2' }}>get prepared for questions 1 2 3, leetcode 1 2 3</JA.Td>
-          </JA.Tr>
-        </tbody>
-      </JA.ApplicationTable>
+            <JA.Tr>
+              <JA.Td style={{ borderLeft: '1px solid #aaaeb2' }}>Google</JA.Td>
+              <JA.Td>Software Engineer</JA.Td>
+              <JA.Td>LinkedIn</JA.Td>
+              <JA.Td>final interview</JA.Td>
+              <JA.Td>10/20</JA.Td>
+              <JA.Td>www.jsLink.com</JA.Td>
+              <JA.Td style={{ borderRight: '1px solid #aaaeb2' }}>get prepared for questions 1 2 3, leetcode 1 2 3</JA.Td>
+            </JA.Tr>
+          </tbody>
+        </JA.ApplicationTable>
+      )}
     </Sections.JobApplications>
   );
 };
