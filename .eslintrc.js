@@ -24,5 +24,7 @@ module.exports = {
     'react/prop-types': 0,
     'no-unused-vars': 0,
     'new-cap': 0,
+    'no-underscore-dangle': 0,
+    'max-len': 0,
   },
 };

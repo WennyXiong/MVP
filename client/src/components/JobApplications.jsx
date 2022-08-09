@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { makeStyles } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material/styles';
 import {
   Table,
   TableBody,
@@ -16,49 +17,77 @@ import {
   TablePagination,
   TableFooter,
 } from '@material-ui/core';
-
 import Sections from '../styles/Sections.jsx';
 import JA from '../styles/JA.jsx';
 import ModalToAdd from './ModalToAdd.jsx';
 
+// ========= table styling ==========
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#ffe88d',
+    },
+    secondary: {
+      light: '#ffe88d',
+      main: '#faca87',
+      contrastText: '#232119',
+    },
+    contrastThreshold: 3,
+    tonalOffset: 0.2,
+  },
+});
+
+const useStyles = makeStyles(() => ({
+  table: {
+    minWidth: 650,
+    overflow: 'visible',
+  },
+  tableContainer: {
+    borderRadius: 15,
+    margin: '10px 10px',
+    maxWidth: 950,
+  },
+  tableHeaderCell: {
+    fontWeight: 'bold',
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.getContrastText(theme.palette.primary.dark),
+  },
+  company: {
+    fontWeight: 'bold',
+    fontSize: '14px',
+    color: theme.palette.secondary.dark,
+  },
+  status: {
+    fontWeight: 'bold',
+    fontSize: '0.75rem',
+    color: 'white',
+    backgroundColor: 'grey',
+    borderRadius: 8,
+    padding: '3px 10px',
+    display: 'inline-block',
+  },
+  footer: {
+    align: 'right',
+    width: 'fit-content',
+  },
+}));
+
 const JobApplications = ({ applicationList, setUpdateCount }) => {
   const [sortBy, setSortBy] = useState('sort by');
   const [openModal, setOpenModal] = useState(false);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  console.log('applicationList: ', applicationList);
+  const classes = useStyles();
 
-  const useStyles = makeStyles((theme) => ({
-    table: {
-      minWidth: 650,
-    },
-    tableContainer: {
-      borderRadius: 15,
-      margin: '10px 10px',
-      maxWidth: 950,
-    },
-    tableHeaderCell: {
-      fontWeight: 'bold',
-      backgroundColor: theme.palette.primary.dark,
-      color: theme.palette.getContrastText(theme.palette.primary.dark),
-    },
-    avatar: {
-      backgroundColor: theme.palette.primary.light,
-      color: theme.palette.getContrastText(theme.palette.primary.light),
-    },
-    name: {
-      fontWeight: 'bold',
-      color: theme.palette.secondary.dark,
-    },
-    status: {
-      fontWeight: 'bold',
-      fontSize: '0.75rem',
-      color: 'white',
-      backgroundColor: 'grey',
-      borderRadius: 8,
-      padding: '3px 10px',
-      display: 'inline-block',
-    },
-  }));
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
 
   return (
     <Sections.JobApplications>
@@ -75,78 +104,73 @@ const JobApplications = ({ applicationList, setUpdateCount }) => {
 
       {openModal && <ModalToAdd setOpenModal={setOpenModal} />}
 
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <TableContainer component={Paper} className={classes.tableContainer}>
+        <Table className={classes.table}>
           <TableHead>
             <TableRow>
-              {/* <TableCell>Application List</TableCell> */}
-              <TableCell align="center">Company</TableCell>
-              <TableCell align="center">Position</TableCell>
-              <TableCell align="center">Applied At</TableCell>
-              <TableCell align="center">Status</TableCell>
-              <TableCell align="center">Next Deadline</TableCell>
-              <TableCell align="center">Job Description</TableCell>
-              <TableCell align="center">Notes</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center">Company</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center">Position</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center">Applied At</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center">Status</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center">Next Deadline</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center">Notes</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center">Job Description</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {applicationList.map((row) => (
+            {applicationList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
               <TableRow
                 key={row._id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-                <TableCell component="th" scope="row">
-                  {row.company}
+                <TableCell component="th" scope="row" align="center">
+                  <Typography className={classes.company}>{row.company}</Typography>
                 </TableCell>
-                <TableCell align="left">{row.position}</TableCell>
-                <TableCell align="left">
-                  {row.appliedAtDate}
-                  {row.appliedAtPlatform}
+                <TableCell>{row.position}</TableCell>
+                <TableCell align="center">
+                  <Typography color="textSecondary" variant="body2">{row.appliedAtDate}</Typography>
+                  <Typography color="textSecondary" variant="body2">{row.appliedAtPlatform}</Typography>
                 </TableCell>
-                <TableCell align="left">{row.status}</TableCell>
-                <TableCell align="left">{row.nextDeadline}</TableCell>
-                <TableCell align="left">{row.JD}</TableCell>
-                <TableCell align="left">{row.notes}</TableCell>
+                <TableCell align="center">
+                  <Typography
+                    className={classes.status}
+                    style={{
+                      backgroundColor:
+                      ((row.status === 'Interview Scheduled' && 'palevioletred')
+                      || (row.status === 'Final Interview' && '#69baa8aa')
+                      || (row.status === 'Offer!!' && '#22a469'))
+                      || (row.status === 'Archieved' && '#ae8327aa'),
+                    }}
+                  >
+                    {row.status}
+                  </Typography>
+                </TableCell>
+                <TableCell align="center">{row.nextDeadline}</TableCell>
+                <TableCell style={{ minWidth: '180px', wordWrap: 'break-word' }}>{row.notes}</TableCell>
+                <TableCell style={{ maxWidth: '98px', wordWrap: 'break-word' }}>{row.JD}</TableCell>
               </TableRow>
             ))}
           </TableBody>
+          <TableFooter className={classes.footer}>
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 15, 30]}
+              colSpan={8}
+              count={applicationList.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              SelectProps={{
+                inputProps: {
+                  'aria-label': 'rows per page',
+                },
+                native: true,
+              }}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+          </TableFooter>
         </Table>
       </TableContainer>
 
-      {/* {(openModal === false && applicationList.length > 0)
-      && (
-        <JA.ApplicationTable>
-          <thead>
-            <JA.HeadTr rowspan="2">
-              <JA.Th>Company</JA.Th>
-              <JA.Th>Position</JA.Th>
-              <JA.Th>Applied At</JA.Th>
-              <JA.Th>Status</JA.Th>
-              <JA.Th>Next Deadline</JA.Th>
-              <JA.Th>Job Description</JA.Th>
-              <JA.Th>Notes</JA.Th>
-            </JA.HeadTr>
-          </thead>
-          <tbody>
-            <JA.Tr>
-              <JA.Td style={{ borderLeft: '1px solid #aaaeb2' }}>
-                {applicationList[0].company}
-              </JA.Td>
-              <JA.Td>Software Engineer</JA.Td>
-              <JA.Td>LinkedIn</JA.Td>
-              <JA.Td>final interview</JA.Td>
-              <JA.Td>10/20</JA.Td>
-              <JA.Td>www.jsLink.com</JA.Td>
-              <JA.Td style={{ borderRight: '1px solid #aaaeb2' }}>
-                get prepared for questions 1 2 3, leetcode 1 2 3
-                get prepared for questions 1 2 3, leetcode 1 2 3
-                get prepared for questions 1 2 3, leetcode 1 2 3
-                get prepared for questions 1 2 3, leetcode 1 2 3
-              </JA.Td>
-            </JA.Tr>
-          </tbody>
-        </JA.ApplicationTable>
-      )} */}
     </Sections.JobApplications>
   );
 };
