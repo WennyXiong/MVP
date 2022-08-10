@@ -1,19 +1,19 @@
-const path = require("path");
-const Dotenv = require("dotenv-webpack");
+const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  mode: "development",
-  entry: "./client/src/index.jsx",
+  mode: 'development',
+  entry: './client/src/index.jsx',
   output: {
     path: path.join(__dirname, './Client/public'),
-    filename: "bundle.js",
+    filename: 'bundle.js',
   },
   module: {
     rules: [
       {
         test: /\.(jsx|js)$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
       },
       {
         test: /\.css$/,
@@ -29,10 +29,8 @@ module.exports = {
     },
   },
 
-  devtool: "eval-cheap-module-source-map",
+  devtool: 'eval-cheap-module-source-map',
   plugins: [
-    new Dotenv({
-      systemvars: true,
-    }),
+    new Dotenv({ systemvars: true }),
   ],
 };

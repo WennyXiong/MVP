@@ -61,7 +61,7 @@ const ModalToAdd = ({ setOpenModal, updateCount, setUpdateCount }) => {
           <Button
             type="submit"
             variant="contained"
-            style={{ width: '200px', backgroundColor: 'palevioletred' }}
+            style={{ width: '200px', backgroundColor: '#a98568' }}
           >
             SUBMIT
           </Button>

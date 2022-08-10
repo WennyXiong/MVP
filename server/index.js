@@ -20,7 +20,6 @@ app.put('/applications', (req, res) => {
 });
 
 app.delete('/applications', (req, res) => {
-  console.log('req.body: ', req.body);
   deleteFromApplications(req, res);
 });
 
