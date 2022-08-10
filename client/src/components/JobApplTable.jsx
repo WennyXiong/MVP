@@ -24,11 +24,12 @@ import ModalToDelete from './ModalToDelete.jsx';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#f7d7aa',
+      main: '#a98568',
     },
     secondary: {
-      light: '#f8e3c6',
-      main: '#faca87',
+      light: '#f7d7aa',
+      // main: '#faca87',
+      main: '#a98568',
       contrastText: '#232119',
     },
     contrastThreshold: 3,
@@ -40,6 +41,7 @@ const useStyles = makeStyles(() => ({
   table: {
     minWidth: 650,
     overflow: 'visible',
+    backgroundColor: '#f6f6f6',
   },
   tableContainer: {
     borderRadius: 15,

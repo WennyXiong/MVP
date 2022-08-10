@@ -31,6 +31,7 @@ const save = (obj) => (
       appliedAtDate: obj.appliedAtDate,
     },
     {
+      appliedAtPlatform: obj.appliedAtPlatform,
       status: obj.status,
       nextDeadline: obj.nextDeadline,
       JD: obj.JD,

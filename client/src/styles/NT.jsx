@@ -9,11 +9,12 @@ const NT = {
     position: relative;
     width: 20%;
     height: 40%;
-    border-left: 2px solid grey;
-    border-bottom: 2px solid grey;
-    font-weight: 300px;
+    border-left: 2px solid #6e4d3c;
+    border-bottom: 2px solid #6e4d3c;
+    font-weight: 500px;
     font-size: 30px;
     cursor: pointer;
+    /* font-family: 'Dancing Script'; */
     /* color: #79A3B1; */
   `,
   Quote: styled.div`
