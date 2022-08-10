@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { makeStyles } from '@material-ui/core/styles';
 import { createTheme } from '@mui/material/styles';
 import {
@@ -18,6 +18,7 @@ import {
   TableFooter,
 } from '@material-ui/core';
 import ModalToUpdate from './ModalToUpdate.jsx';
+import ModalToDelete from './ModalToDelete.jsx';
 
 // ========= table styling ==========
 const theme = createTheme({
@@ -69,10 +70,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+// ========= Job Application Table Component ==========
 const JobApplTable = ({ applicationList, updateCount, setUpdateCount }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [openUpdateModal, setOpenUpdateModal] = useState(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [objToDelete, setObjToDelete] = useState({});
 
   const classes = useStyles();
 
@@ -85,13 +89,25 @@ const JobApplTable = ({ applicationList, updateCount, setUpdateCount }) => {
     setPage(0);
   };
 
+  const onClickDelete = (targetObj) => {
+    console.log('targetObj: ', targetObj);
+  };
+
   return (
     <div>
+      {/* ====== modals to update and delete ====== */}
       <ModalToUpdate
         setOpenUpdateModal={setOpenUpdateModal}
         updateCount={updateCount}
         setUpdateCount={setUpdateCount}
       />
+      <ModalToDelete
+        setOpenDeleteModal={setOpenDeleteModal}
+        updateCount={updateCount}
+        setUpdateCount={setUpdateCount}
+      />
+
+      {/* ====== Application List Table  ====== */}
       <TableContainer component={Paper} className={classes.tableContainer}>
         <Table className={classes.table}>
 
@@ -142,6 +158,11 @@ const JobApplTable = ({ applicationList, updateCount, setUpdateCount }) => {
                 <TableCell>
                   <FontAwesomeIcon
                     icon={faPenToSquare}
+                    style={{ cursor: 'pointer', marginRight: '3px' }}
+                  />
+                  <FontAwesomeIcon
+                    onClick={() => setObjToDelete(row)}
+                    icon={faTrashCan}
                     style={{ cursor: 'pointer' }}
                   />
                 </TableCell>
