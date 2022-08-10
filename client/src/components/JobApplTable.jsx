@@ -79,6 +79,7 @@ const JobApplTable = ({ applicationList, updateCount, setUpdateCount }) => {
   const [openUpdateModal, setOpenUpdateModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [objToDelete, setObjToDelete] = useState({});
+  const [objToUpdate, setObjToUpdate] = useState({});
 
   const classes = useStyles();
 
@@ -98,11 +99,15 @@ const JobApplTable = ({ applicationList, updateCount, setUpdateCount }) => {
   return (
     <div>
       {/* ====== modals to update and delete ====== */}
-      <ModalToUpdate
-        setOpenUpdateModal={setOpenUpdateModal}
-        updateCount={updateCount}
-        setUpdateCount={setUpdateCount}
-      />
+      {openUpdateModal
+      && (
+        <ModalToUpdate
+          objToUpdate={objToUpdate}
+          setOpenUpdateModal={setOpenUpdateModal}
+          updateCount={updateCount}
+          setUpdateCount={setUpdateCount}
+        />
+      )}
       {openDeleteModal
       && (
         <ModalToDelete
@@ -163,6 +168,10 @@ const JobApplTable = ({ applicationList, updateCount, setUpdateCount }) => {
                 <TableCell style={{ maxWidth: '98px', wordWrap: 'break-word' }}>{row.JD}</TableCell>
                 <TableCell>
                   <FontAwesomeIcon
+                    onClick={() => {
+                      setObjToUpdate(row);
+                      setOpenUpdateModal(true);
+                    }}
                     icon={faPenToSquare}
                     style={{ cursor: 'pointer', marginRight: '3px' }}
                   />

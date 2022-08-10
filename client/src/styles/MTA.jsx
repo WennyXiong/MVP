@@ -67,9 +67,10 @@ const MTA = {
   Input: styled.input`
     display: inline-block;
     border-radius: 5px;
+    border: 1px solid;
     position: relative;
     width: 25%;
-    height: 35px;
+    height: 30px;
     min-width: 150px;
     position: relative;
   `,

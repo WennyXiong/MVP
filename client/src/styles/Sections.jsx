@@ -30,7 +30,7 @@ const Sections = {
     width: 95%;
     height: 200px;
     overflow: hidden;
-    background-color: #fafce9;
+    background-color: #f6f6f6;
   `,
   JobApplications: styled.div`
     display: inline-block;
@@ -45,7 +45,7 @@ const Sections = {
     display: inline-block;
     width: 100%;
     height: 200px;
-    background-color: #fafce9;
+    background-color: #f6f6f6;
   `,
 };
 
