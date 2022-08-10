@@ -1,7 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
-const { getAllApplications, saveToApplications, deleteFromApplications } = require('./helpers');
+const {
+  getAllApplications,
+  createAndSave,
+  saveToApplications,
+  deleteFromApplications,
+} = require('./helpers');
 
 const app = express();
 
@@ -12,7 +17,7 @@ app.get('/applications', (req, res) => {
   getAllApplications(req, res);
 });
 app.post('/applications', (req, res) => {
-  saveToApplications(req, res);
+  createAndSave(req, res);
 });
 
 app.put('/applications', (req, res) => {

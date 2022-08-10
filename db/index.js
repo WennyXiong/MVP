@@ -23,12 +23,20 @@ const find = () => (
   Application.find().exec()
 );
 
-const save = (obj) => {
-  if (obj._id === undefined) {
-    obj._id = '';
-  }
-
-  return Application.findOneAndUpdate(
+const create = (obj) => (
+  Application.create({
+    company: obj.company,
+    position: obj.position,
+    appliedAtPlatform: obj.appliedAtPlatform,
+    appliedAtDate: obj.appliedAtDate,
+    status: obj.status,
+    nextDeadline: obj.nextDeadline,
+    JD: obj.JD,
+    notes: obj.notes,
+  })
+);
+const update = (obj) => (
+  Application.findOneAndUpdate(
     {
       _id: obj._id,
     },
@@ -46,11 +54,16 @@ const save = (obj) => {
       new: true,
       upsert: true,
     },
-  ).exec();
-};
+  ).exec()
+);
 
 const deleteFromList = (obj) => (
   Application.deleteOne({ _id: obj._id }).exec()
 );
 
-module.exports = { find, save, deleteFromList };
+module.exports = {
+  find,
+  create,
+  update,
+  deleteFromList,
+};

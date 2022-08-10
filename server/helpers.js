@@ -1,4 +1,9 @@
-const { find, save, deleteFromList } = require('../db/index.js');
+const {
+  find,
+  create,
+  update,
+  deleteFromList,
+} = require('../db/index.js');
 
 const getAllApplications = (req, res) => {
   find()
@@ -9,11 +14,20 @@ const getAllApplications = (req, res) => {
     });
 };
 
-const saveToApplications = (req, res) => {
-  save(req.body)
+const createAndSave = (req, res) => {
+  create(req.body)
     .then((savedData) => res.status(201).send(savedData.data))
     .catch((err) => {
-      console.log('err when saveing to DB: ', err);
+      console.log('err when saving to DB: ', err);
+      res.status(500);
+    });
+};
+
+const saveToApplications = (req, res) => {
+  update(req.body)
+    .then((savedData) => res.status(201).send(savedData.data))
+    .catch((err) => {
+      console.log('err when saving to DB: ', err);
       res.status(500);
     });
 };
@@ -27,4 +41,9 @@ const deleteFromApplications = (req, res) => {
     });
 };
 
-module.exports = { getAllApplications, saveToApplications, deleteFromApplications };
+module.exports = {
+  getAllApplications,
+  createAndSave,
+  saveToApplications,
+  deleteFromApplications,
+};
