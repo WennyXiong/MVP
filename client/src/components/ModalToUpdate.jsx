@@ -12,9 +12,8 @@ const ModalToUpdate = ({ updateCount, setUpdateCount }) => {
   };
 
   return (
-    <div>
-      modal to update
-    </div>
+
+    <div> modal to update</div>
   );
 };
 

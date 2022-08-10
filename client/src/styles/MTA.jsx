@@ -73,21 +73,6 @@ const MTA = {
     min-width: 150px;
     position: relative;
   `,
-  CloseBtn: styled.button`
-    /* position: inherit; */
-    top: 70%;
-    margin: 20px;
-    width: 120px;
-    height: 40px;
-    background-color: #eaeabf;
-    border-radius: 5px;
-    text-align: center;
-
-    &:hover {
-      opacity: 0.8;
-      cursor: pointer;
-    }
-  `,
   SubmitBtn: styled.button`
     top: 70%;
     left: 10%;

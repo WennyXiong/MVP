@@ -101,11 +101,15 @@ const JobApplTable = ({ applicationList, updateCount, setUpdateCount }) => {
         updateCount={updateCount}
         setUpdateCount={setUpdateCount}
       />
-      <ModalToDelete
-        setOpenDeleteModal={setOpenDeleteModal}
-        updateCount={updateCount}
-        setUpdateCount={setUpdateCount}
-      />
+      {openDeleteModal
+      && (
+        <ModalToDelete
+          objToDelete={objToDelete}
+          setOpenDeleteModal={setOpenDeleteModal}
+          updateCount={updateCount}
+          setUpdateCount={setUpdateCount}
+        />
+      )}
 
       {/* ====== Application List Table  ====== */}
       <TableContainer component={Paper} className={classes.tableContainer}>
@@ -161,7 +165,10 @@ const JobApplTable = ({ applicationList, updateCount, setUpdateCount }) => {
                     style={{ cursor: 'pointer', marginRight: '3px' }}
                   />
                   <FontAwesomeIcon
-                    onClick={() => setObjToDelete(row)}
+                    onClick={() => {
+                      setObjToDelete(row);
+                      setOpenDeleteModal(true);
+                    }}
                     icon={faTrashCan}
                     style={{ cursor: 'pointer' }}
                   />
