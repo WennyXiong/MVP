@@ -13,7 +13,6 @@ const MTU = {
     justify-content: center;
     align-items: center;
     z-index: 10;
-
   `,
   Container: styled.div`
     position: fixed;

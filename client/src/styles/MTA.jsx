@@ -4,16 +4,15 @@ const MTA = {
   Background: styled.div`
     width: 100vw;
     height: 100vh;
-    background-color: rgba(200, 200, 200);
-    /* transform: translateZ(0); */
     position: fixed;
     display: flex;
-    top: 0;
+    padding: 10px;
     left: 0;
+    top: 0;
+    background-color: rgb(0 0 0 / 26%);
     justify-content: center;
     align-items: center;
     z-index: 10;
-    /* opacity: 0.5; */
   `,
   Container: styled.div`
     position: fixed;
