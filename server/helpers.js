@@ -9,11 +9,11 @@ const getAllApplications = (req, res) => {
     });
 };
 
-const addToApplications = (req, res) => {
+const saveToApplications = (req, res) => {
   save(req.body)
     .then((savedData) => res.status(201).send(savedData.data))
     .catch((err) => {
-      console.log('err when adding to DB: ', err);
+      console.log('err when saveing to DB: ', err);
       res.status(500);
     });
 };
@@ -27,4 +27,4 @@ const deleteFromApplications = (req, res) => {
     });
 };
 
-module.exports = { getAllApplications, addToApplications, deleteFromApplications };
+module.exports = { getAllApplications, saveToApplications, deleteFromApplications };

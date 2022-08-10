@@ -52,7 +52,7 @@ const ModalToUpdate = ({
           <MTU.Label>Position</MTU.Label>
           <input defaultValue={position} onChange={(e) => setPosition(e.target.value)} />
           <MTU.Label>Applied Platform</MTU.Label>
-          <input defaultValue={appliedAtPlatform} onChange={(e) => setCompany(e.target.value)} />
+          <input defaultValue={appliedAtPlatform} onChange={(e) => setAppliedAtPlatform(e.target.value)} />
           <MTU.Label>Applied Date</MTU.Label>
           <input defaultValue={appliedAtDate} onChange={(e) => setAppliedAtDate(e.target.value)} />
           <MTU.Label>Status</MTU.Label>

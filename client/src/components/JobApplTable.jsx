@@ -144,7 +144,7 @@ const JobApplTable = ({ applicationList, updateCount, setUpdateCount }) => {
                 <TableCell component="th" scope="row" align="center">
                   <Typography className={classes.company}>{row.company}</Typography>
                 </TableCell>
-                <TableCell align="center">{row.position}</TableCell>
+                <TableCell align="center" style={{ maxWidth: '70px' }}>{row.position}</TableCell>
                 <TableCell align="center">
                   <Typography color="textSecondary" variant="body2">{row.appliedAtDate}</Typography>
                   <Typography color="textSecondary" variant="body2">{row.appliedAtPlatform}</Typography>
@@ -163,7 +163,11 @@ const JobApplTable = ({ applicationList, updateCount, setUpdateCount }) => {
                     {row.status}
                   </Typography>
                 </TableCell>
-                <TableCell align="center">{row.nextDeadline}</TableCell>
+                <TableCell align="center">
+                  <Typography color="textSecondary" variant="body2">
+                    {row.nextDeadline}
+                  </Typography>
+                </TableCell>
                 <TableCell style={{ minWidth: '180px', wordWrap: 'break-word' }}>{row.notes}</TableCell>
                 <TableCell style={{ maxWidth: '98px', wordWrap: 'break-word' }}>{row.JD}</TableCell>
                 <TableCell>
