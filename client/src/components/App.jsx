@@ -28,28 +28,30 @@ const App = () => {
   }, [updateCount]);
 
   return (
-    <GeneralStyles.Div>
+    <GeneralStyles.Background>
+      <GeneralStyles.Div>
 
-      <NavTopBar username={username} />
-      <NavLeft
-        showNavOptions={showNavOptions}
-        setShowNavOptions={setShowNavOptions}
-      />
-
-      <Sections.MainInfo>
-        <CompanySummary />
-        <JobApplications
-          applicationList={applicationList}
-          updateCount={updateCount}
-          setUpdateCount={setUpdateCount}
+        <NavTopBar username={username} />
+        <NavLeft
+          showNavOptions={showNavOptions}
+          setShowNavOptions={setShowNavOptions}
         />
-      </Sections.MainInfo>
 
-      <Sections.Footer>
-        <Footer />
-      </Sections.Footer>
+        <Sections.MainInfo>
+          <CompanySummary />
+          <JobApplications
+            applicationList={applicationList}
+            updateCount={updateCount}
+            setUpdateCount={setUpdateCount}
+          />
+        </Sections.MainInfo>
 
-    </GeneralStyles.Div>
+        <Sections.Footer>
+          <Footer />
+        </Sections.Footer>
+
+      </GeneralStyles.Div>
+    </GeneralStyles.Background>
   );
 };
 

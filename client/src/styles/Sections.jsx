@@ -7,7 +7,7 @@ const Sections = {
     height: 100px;
     float: top;
     overflow: hidden;
-    background-color: #ecdff1;
+    /* background-color: #ecdff1; */
   `,
   NavLeft: styled.div`
     width: 15%;
@@ -42,7 +42,7 @@ const Sections = {
     width: 91%;
     height: fit-content;
     overflow: visible;
-    background-color: #faf8f8;
+    /* background-color: #faf8f8; */
   `,
   Footer: styled.div`
     display: inline-block;

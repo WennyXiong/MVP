@@ -24,10 +24,10 @@ import ModalToDelete from './ModalToDelete.jsx';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#ffe88d',
+      main: '#f7d7aa',
     },
     secondary: {
-      light: '#ffe88d',
+      light: '#f8e3c6',
       main: '#faca87',
       contrastText: '#232119',
     },
@@ -137,7 +137,7 @@ const JobApplTable = ({ applicationList, updateCount, setUpdateCount }) => {
                 <TableCell component="th" scope="row" align="center">
                   <Typography className={classes.company}>{row.company}</Typography>
                 </TableCell>
-                <TableCell>{row.position}</TableCell>
+                <TableCell align="center">{row.position}</TableCell>
                 <TableCell align="center">
                   <Typography color="textSecondary" variant="body2">{row.appliedAtDate}</Typography>
                   <Typography color="textSecondary" variant="body2">{row.appliedAtPlatform}</Typography>
@@ -148,9 +148,9 @@ const JobApplTable = ({ applicationList, updateCount, setUpdateCount }) => {
                     style={{
                       backgroundColor:
                       ((row.status === 'Interview Scheduled' && 'palevioletred')
-                      || (row.status === 'Final Interview' && '#69baa8aa')
-                      || (row.status === 'Offer!!' && '#22a469'))
-                      || (row.status === 'Archieved' && '#ae8327aa'),
+                      || (row.status === 'Final Interview' && '#6b64eeaa')
+                      || (row.status === 'Offer!!' && '#22a28b'))
+                      || (row.status === 'Archived' && '#ae8327aa'),
                     }}
                   >
                     {row.status}
