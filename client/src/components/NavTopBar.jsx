@@ -35,7 +35,7 @@ const NavTopBar = ({ username }) => {
         &apos;s Tracker
       </NT.Logo>
       <NT.Quote>
-        QUOTE TODAY
+        QUOTE OF THE DAY
         <NT.RenewButton onClick={(e) => getNewQuote(e)}>⭐️</NT.RenewButton>
         <br />
 

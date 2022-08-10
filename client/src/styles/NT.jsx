@@ -25,13 +25,12 @@ const NT = {
     left: 7%;
     width: 50%;
     height: 90%;
-    border: 2px solid grey;
     font-family: 'Special Elite', cursive;
     text-align: center;
     flex-direction: column;
     /* align-items: center;
     justify-content: center; */
-  `,
+    `,
   RenewButton: styled.span`
     display: inline-flex;
     float: initial;
