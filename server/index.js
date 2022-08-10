@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
-const { getAllApplications, addToApplications } = require('./helpers');
+const { getAllApplications, addToApplications, deleteFromApplications } = require('./helpers');
 
 const app = express();
 
@@ -15,8 +15,13 @@ app.post('/applications', (req, res) => {
   addToApplications(req, res);
 });
 
-app.put('/application', (req, res) => {
+app.put('/applications', (req, res) => {
   addToApplications(req, res);
+});
+
+app.delete('/applications', (req, res) => {
+  console.log('req.body: ', req.body);
+  deleteFromApplications(req, res);
 });
 
 const port = process.env.PORT || 3000;

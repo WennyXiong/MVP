@@ -13,12 +13,11 @@ const ModalToDelete = ({
     setOpenDeleteModal(false);
     let count = updateCount;
 
-    axios.delete('/applcations', { data: objToDelete })
-      .then((deletedObj) => console.log('updated obj in db: ', deletedObj))
+    axios.delete('/applications', { data: objToDelete })
+      .then((deletedObj) => console.log('Successfully deleted!'))
       .then(() => { setUpdateCount(count += 1); })
       .catch((err) => console.log(err));
   };
-  console.log('obj to delete: ', objToDelete);
 
   return (
     <MTD.Background>

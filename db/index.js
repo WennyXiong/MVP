@@ -43,4 +43,8 @@ const save = (obj) => (
   ).exec()
 );
 
-module.exports = { find, save };
+const deleteFromList = (obj) => (
+  Application.deleteOne({ _id: obj._id }).exec()
+);
+
+module.exports = { find, save, deleteFromList };

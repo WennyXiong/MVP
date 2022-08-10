@@ -1,4 +1,4 @@
-const { find, save } = require('../db/index.js');
+const { find, save, deleteFromList } = require('../db/index.js');
 
 const getAllApplications = (req, res) => {
   find()
@@ -18,4 +18,13 @@ const addToApplications = (req, res) => {
     });
 };
 
-module.exports = { getAllApplications, addToApplications };
+const deleteFromApplications = (req, res) => {
+  deleteFromList(req.body)
+    .then((deletedData) => res.status(200).send(deletedData.data))
+    .catch((err) => {
+      console.log('error when deleting from DB: ', err);
+      res.status(500);
+    });
+};
+
+module.exports = { getAllApplications, addToApplications, deleteFromApplications };
