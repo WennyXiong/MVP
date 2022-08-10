@@ -17,6 +17,7 @@ import {
   TablePagination,
   TableFooter,
 } from '@material-ui/core';
+import ModalToUpdate from './ModalToUpdate.jsx';
 
 // ========= table styling ==========
 const theme = createTheme({
@@ -68,9 +69,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const JobApplTable = ({ applicationList }) => {
+const JobApplTable = ({ applicationList, updateCount, setUpdateCount }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [openUpdateModal, setOpenUpdateModal] = useState(false);
 
   const classes = useStyles();
 
@@ -84,81 +86,91 @@ const JobApplTable = ({ applicationList }) => {
   };
 
   return (
-    <TableContainer component={Paper} className={classes.tableContainer}>
-      <Table className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell className={classes.tableHeaderCell} align="center">Company</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="center">Position</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="center">Applied At</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="center">Status</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="center">Next Deadline</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="center">Notes</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="center">Job Description</TableCell>
-            <TableCell className={classes.tableHeaderCell} align="center"> </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {applicationList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-            <TableRow
-              key={row._id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row" align="center">
-                <Typography className={classes.company}>{row.company}</Typography>
-              </TableCell>
-              <TableCell>{row.position}</TableCell>
-              <TableCell align="center">
-                <Typography color="textSecondary" variant="body2">{row.appliedAtDate}</Typography>
-                <Typography color="textSecondary" variant="body2">{row.appliedAtPlatform}</Typography>
-              </TableCell>
-              <TableCell align="center" style={{ maxWidth: '60px' }}>
-                <Typography
-                  className={classes.status}
-                  style={{
-                    backgroundColor:
-                    ((row.status === 'Interview Scheduled' && 'palevioletred')
-                    || (row.status === 'Final Interview' && '#69baa8aa')
-                    || (row.status === 'Offer!!' && '#22a469'))
-                    || (row.status === 'Archieved' && '#ae8327aa'),
-                  }}
-                >
-                  {row.status}
-                </Typography>
-              </TableCell>
-              <TableCell align="center">{row.nextDeadline}</TableCell>
-              <TableCell style={{ minWidth: '180px', wordWrap: 'break-word' }}>{row.notes}</TableCell>
-              <TableCell style={{ maxWidth: '98px', wordWrap: 'break-word' }}>{row.JD}</TableCell>
-              <TableCell>
-                <FontAwesomeIcon
-                  icon={faPenToSquare}
-                  style={{ cursor: 'pointer' }}
-                />
-              </TableCell>
+    <div>
+      <ModalToUpdate
+        setOpenUpdateModal={setOpenUpdateModal}
+        updateCount={updateCount}
+        setUpdateCount={setUpdateCount}
+      />
+      <TableContainer component={Paper} className={classes.tableContainer}>
+        <Table className={classes.table}>
+
+          <TableHead>
+            <TableRow>
+              <TableCell className={classes.tableHeaderCell} align="center">Company</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center">Position</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center">Applied At</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center">Status</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center">Next Deadline</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center">Notes</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center">Job Description</TableCell>
+              <TableCell className={classes.tableHeaderCell} align="center"> </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-        <TableFooter className={classes.footer}>
-          <TableRow>
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 15, 30]}
-              colSpan={8}
-              count={applicationList.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              SelectProps={{
-                inputProps: {
-                  'aria-label': 'rows per page',
-                },
-                native: true,
-              }}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-          </TableRow>
-        </TableFooter>
-      </Table>
-    </TableContainer>
+          </TableHead>
+
+          <TableBody>
+            {applicationList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
+              <TableRow
+                key={row._id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row" align="center">
+                  <Typography className={classes.company}>{row.company}</Typography>
+                </TableCell>
+                <TableCell>{row.position}</TableCell>
+                <TableCell align="center">
+                  <Typography color="textSecondary" variant="body2">{row.appliedAtDate}</Typography>
+                  <Typography color="textSecondary" variant="body2">{row.appliedAtPlatform}</Typography>
+                </TableCell>
+                <TableCell align="center" style={{ maxWidth: '60px' }}>
+                  <Typography
+                    className={classes.status}
+                    style={{
+                      backgroundColor:
+                      ((row.status === 'Interview Scheduled' && 'palevioletred')
+                      || (row.status === 'Final Interview' && '#69baa8aa')
+                      || (row.status === 'Offer!!' && '#22a469'))
+                      || (row.status === 'Archieved' && '#ae8327aa'),
+                    }}
+                  >
+                    {row.status}
+                  </Typography>
+                </TableCell>
+                <TableCell align="center">{row.nextDeadline}</TableCell>
+                <TableCell style={{ minWidth: '180px', wordWrap: 'break-word' }}>{row.notes}</TableCell>
+                <TableCell style={{ maxWidth: '98px', wordWrap: 'break-word' }}>{row.JD}</TableCell>
+                <TableCell>
+                  <FontAwesomeIcon
+                    icon={faPenToSquare}
+                    style={{ cursor: 'pointer' }}
+                  />
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+
+          <TableFooter className={classes.footer}>
+            <TableRow>
+              <TablePagination
+                rowsPerPageOptions={[5, 10, 15, 30]}
+                colSpan={8}
+                count={applicationList.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                SelectProps={{
+                  inputProps: {
+                    'aria-label': 'rows per page',
+                  },
+                  native: true,
+                }}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            </TableRow>
+          </TableFooter>
+        </Table>
+      </TableContainer>
+    </div>
 
   );
 };

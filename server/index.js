@@ -15,5 +15,9 @@ app.post('/applications', (req, res) => {
   addToApplications(req, res);
 });
 
+app.put('/application', (req, res) => {
+  addToApplications(req, res);
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log('Listening on PORT:', port));

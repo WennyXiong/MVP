@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Sections from '../styles/Sections.jsx';
@@ -23,12 +24,22 @@ const JobApplications = ({ applicationList, updateCount, setUpdateCount }) => {
         <FontAwesomeIcon icon={faPlus} />
       </JA.AddButton>
 
-      {openModal && <ModalToAdd setOpenModal={setOpenModal} updateCount={updateCount} setUpdateCount={setUpdateCount} />}
-
+      {openModal
+        && (
+          <ModalToAdd
+            setOpenModal={setOpenModal}
+            updateCount={updateCount}
+            setUpdateCount={setUpdateCount}
+          />
+        )}
       <br />
       <br />
 
-      <JobApplTable applicationList={applicationList} />
+      <JobApplTable
+        applicationList={applicationList}
+        updateCount={updateCount}
+        setUpdateCount={setUpdateCount}
+      />
     </Sections.JobApplications>
   );
 };
