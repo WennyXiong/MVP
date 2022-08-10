@@ -26,5 +26,6 @@ module.exports = {
     'new-cap': 0,
     'no-underscore-dangle': 0,
     'max-len': 0,
+    'no-param-reassign': 0,
   },
 };

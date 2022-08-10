@@ -35,10 +35,10 @@ const ModalToUpdate = ({
     };
     console.log('object to update: ', newObj);
     let count = updateCount;
-    // axios.put('/applcations')
-    //   .then((updatedObj) => console.log('updated obj in db: ', updatedObj))
-    //   .then(() => { setUpdateCount(count += 1); })
-    //   .catch((err) => console.log(err));
+    axios.put('/applications', newObj)
+      .then((updatedObj) => console.log('updated obj in db: ', updatedObj))
+      .then(() => { setUpdateCount(count += 1); })
+      .catch((err) => console.log(err));
   };
 
   return (

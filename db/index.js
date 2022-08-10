@@ -23,15 +23,20 @@ const find = () => (
   Application.find().exec()
 );
 
-const save = (obj) => (
-  Application.findOneAndUpdate(
+const save = (obj) => {
+  if (obj._id === undefined) {
+    obj._id = '';
+  }
+
+  return Application.findOneAndUpdate(
+    {
+      _id: obj._id,
+    },
     {
       company: obj.company,
       position: obj.position,
-      appliedAtDate: obj.appliedAtDate,
-    },
-    {
       appliedAtPlatform: obj.appliedAtPlatform,
+      appliedAtDate: obj.appliedAtDate,
       status: obj.status,
       nextDeadline: obj.nextDeadline,
       JD: obj.JD,
@@ -41,8 +46,8 @@ const save = (obj) => (
       new: true,
       upsert: true,
     },
-  ).exec()
-);
+  ).exec();
+};
 
 const deleteFromList = (obj) => (
   Application.deleteOne({ _id: obj._id }).exec()
