@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 const Sections = {
   NavTop: styled.div`
-    margin: 10px 20px;
+    margin: 0 20px;
+    padding: 10px 0;
     weight: 100%;
     height: 100px;
     float: top;

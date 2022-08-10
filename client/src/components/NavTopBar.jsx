@@ -7,24 +7,26 @@ const NavTopBar = ({ username }) => {
   const [quote, setQuote] = useState('');
 
   const generateQuote = () => {
-    const options = {
+    axios({
       method: 'GET',
       url: process.env.QUOTE_URL,
-      // params: {author: 'Albert'},
       headers: {
-        'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`,
+        'X-RapidAPI-Key': process.env.RAPID_API_KEY,
         'X-RapidAPI-Host': process.env.RAPID_API_HOST,
       },
-    };
-    axios(options)
-      .then((newQuote) => setQuote(newQuote))
+    })
+      .then((newQuote) => setQuote(newQuote.data.quote))
       .catch((err) => console.log('error when generating new quote: ', err));
   };
 
   useEffect(() => {
-    console.log('envs: ', process.env.QUOTE_URL);
     generateQuote();
   }, []);
+
+  const getNewQuote = (e) => {
+    e.preventDefault();
+    generateQuote();
+  };
 
   return (
     <Sections.NavTop>
@@ -34,11 +36,10 @@ const NavTopBar = ({ username }) => {
       </NT.Logo>
       <NT.Quote>
         QUOTE TODAY
-        <NT.RenewButton>⭐️</NT.RenewButton>
+        <NT.RenewButton onClick={(e) => getNewQuote(e)}>⭐️</NT.RenewButton>
         <br />
+
         {quote}
-        {/* I have no special talent. I am only passionately curious.
-        I have no special talent. I am only passionately curious. */}
       </NT.Quote>
     </Sections.NavTop>
   );

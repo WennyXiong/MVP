@@ -12,8 +12,6 @@ const GeneralStyles = {
   `,
   H1: styled.h1`
     font-weight: 300;
-    /* text-align: center; */
-    /* text-decoration: underline; */
   `,
 };
 
