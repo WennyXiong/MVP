@@ -47,8 +47,10 @@ const Sections = {
   Footer: styled.div`
     display: inline-block;
     width: 100%;
-    height: 200px;
-    background-color: #f6f6f6;
+    height: 100px;
+    /* background-color: #f6f6f6; */
+    align-items: center;
+    text-align: center;
   `,
 };
 

@@ -31,7 +31,7 @@ const App = () => {
     <GeneralStyles.Background>
       <GeneralStyles.Div>
 
-        <NavTopBar username={username} />
+        <NavTopBar username={username} setUsername={setUsername} />
         <NavLeft
           showNavOptions={showNavOptions}
           setShowNavOptions={setShowNavOptions}

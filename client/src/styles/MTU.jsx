@@ -57,18 +57,8 @@ const MTU = {
   `,
   Label: styled.label`
     vertical-align: middle;
-    /* padding: 10px;
-    box-sizing: border-box; */
-    /* float: left;
-    position: relative; */
   `,
   Input: styled.input`
-    /* margin: 5px;
-    height: 20px;
-    box-sizing: border-box; */
-    /* float: left;
-    position: relative; */
-    /* left: 3%; */
   `,
 };
 
