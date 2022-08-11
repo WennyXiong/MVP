@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 import Sections from '../styles/Sections.jsx';
 import CS from '../styles/CS.jsx';
 
-const CompanySummary = ({ applicationList }) => {
+const CompanySummary = ({ applicationList, updateCount, setUpdateCount }) => {
   const [companyList, setCompanyList] = useState([]);
   const [currList, setCurrList] = useState([]);
   const [page, setPage] = useState(1);
@@ -64,27 +64,27 @@ const CompanySummary = ({ applicationList }) => {
 
   useEffect(() => {
     getCompanies();
+
     if (page === 1) {
       setCurrList(companyList.slice(0, 6));
     } else if (page === 2) {
       setCurrList(companyList.slice(6, 12));
     }
-  }, [applicationList, page]);
-
-  // useEffect(() => {
-  //   console.log('company list: ', companyList)
-  // }, [companyList]);
+  }, [applicationList, page, updateCount,
+    //  currList
+  ]);
 
   return (
     <Sections.CompanySummary>
       <CS.Header> Company Summary </CS.Header>
       <Stack
-        spacing={2}
+        spacing={3}
         style={{
           width: '500px',
           display: 'inline-block',
           float: 'right',
-          position: 'fixed',
+          position: 'absolute',
+          top: '19%',
         }}
       >
         <Pagination count={pageCount} page={page} onChange={handleChange} />

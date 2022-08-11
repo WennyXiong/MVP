@@ -38,7 +38,11 @@ const App = () => {
         />
 
         <Sections.MainInfo>
-          <CompanySummary applicationList={applicationList} />
+          <CompanySummary
+            applicationList={applicationList}
+            updateCount={updateCount}
+            setUpdateCount={setUpdateCount}
+          />
           <JobApplications
             applicationList={applicationList}
             updateCount={updateCount}

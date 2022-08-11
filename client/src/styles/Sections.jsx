@@ -27,10 +27,13 @@ const Sections = {
   CompanySummary: styled.div`
     display: inline-block;
     margin: 20px;
-    width: 95%;
+    width: 92%;
     height: 230px;
     overflow-x: auto;
-    background-color: #f6f6f6;
+    /* background-color: #f6f6f6; */
+    background-color: rgb(10 0 0 / 5%);
+    border-radius: 10px;
+    padding: 10px;
   `,
   JobApplications: styled.div`
     display: inline-block;

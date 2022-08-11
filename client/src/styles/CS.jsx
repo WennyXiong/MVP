@@ -15,6 +15,7 @@ const CS = {
     width: 270px;
     height: 80px;
     border: 1px solid;
+    background-color: #f6f6f6;
   `,
   Thumbnail: styled.img`
     position: relative;
@@ -36,7 +37,7 @@ const CS = {
     left: 3%;
     width: 170px;
     height: 60px;
-    border: 1px solid;
+    /* border: 1px solid; */
   `,
 };
 
