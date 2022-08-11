@@ -28,8 +28,8 @@ const Sections = {
     display: inline-block;
     margin: 20px;
     width: 95%;
-    height: 200px;
-    overflow: hidden;
+    height: 230px;
+    overflow-x: auto;
     background-color: #f6f6f6;
   `,
   JobApplications: styled.div`
@@ -39,7 +39,7 @@ const Sections = {
     position: relative;
     width: 91%;
     height: fit-content;
-    overflow: visible;
+    overflow: hidden;
   `,
   Footer: styled.div`
     display: inline-block;
