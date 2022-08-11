@@ -61,6 +61,17 @@ const CompanySummary = ({ applicationList, updateCount, setUpdateCount }) => {
     //   setCompanyList(listWithData);
     // }
   };
+  useEffect(() => {
+    getCompanies();
+
+    if (page === 1) {
+      setCurrList(companyList.slice(0, 6));
+    } else if (page === 2) {
+      setCurrList(companyList.slice(6, 12));
+    }
+  }, [applicationList, page, updateCount,
+    // currList,
+  ]);
 
   useEffect(() => {
     getCompanies();
@@ -71,7 +82,7 @@ const CompanySummary = ({ applicationList, updateCount, setUpdateCount }) => {
       setCurrList(companyList.slice(6, 12));
     }
   }, [applicationList, page, updateCount,
-    //  currList
+    //  currList,
   ]);
 
   return (

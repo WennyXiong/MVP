@@ -35,6 +35,11 @@ const App = () => {
         <NavLeft
           showNavOptions={showNavOptions}
           setShowNavOptions={setShowNavOptions}
+          applicationList={applicationList}
+          setApplicationList={setApplicationList}
+          updateCount={updateCount}
+          setUpdateCount={setUpdateCount}
+          getApplications={getApplications}
         />
 
         <Sections.MainInfo>

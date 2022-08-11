@@ -63,7 +63,7 @@ const NT = {
     left: 40%;
     width: 30%;
     height: 30%;
-    max-width: 750px;
+    max-width: 410px;
     padding: 25px;
     background-color: white;
     box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.1);
